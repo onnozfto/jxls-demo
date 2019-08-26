@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<workbook>
+  <!--可以通过name属性指定工作簿的名字，或者通过idx属性指定工作簿的序号-->
+  <!--<worksheet idx="0">-->
+  <worksheet name="sheet1">
+    <!--section标签指定对象解析的区域，startRow起始行, endRow结束行-->
+    <section startRow="0" endRow="6">
+      <mapping cell="B1">department.name</mapping>
+      <mapping cell="A4">department.chief.name</mapping>
+      <mapping cell="B4">department.chief.age</mapping>
+      <mapping row="3" col="2">department.chief.address</mapping>
+    </section>
+    <!--XLSForEachBlockReaderImpl.class-->
+    <loop startRow="7" endRow="7" items="department.staff" var="person" varType="com.self.jxlsdemo.pojo.Person">
+      <!--内部section 列表-->
+      <section startRow="7" endRow="7">
+        <mapping row="7" col="0">person.name</mapping>
+        <mapping row="7" col="1">person.age</mapping>
+        <mapping row="7" col="2">person.address</mapping>
+      </section>
+      <!--这里的offset 默认配置 (0,0)-->
+      <loopbreakcondition>
+        <!--循环读取退出条件的上一行-->
+        <rowcheck offset="0">
+          <!--退出循环的cellcheck 列表-->
+          <cellcheck offset="0"></cellcheck>
+        </rowcheck>
+      </loopbreakcondition>
+    </loop>
+  </worksheet>
+</workbook>
