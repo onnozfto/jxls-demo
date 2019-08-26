@@ -252,7 +252,8 @@ public abstract class JxlsBuilder {
    * 指定输出文件绝对路径
    */
   public JxlsBuilder out(String outPath) throws Exception {
-    this.out = new FileOutputStream(new File(outPath));
+    File file = new File(outPath);
+    this.out = new FileOutputStream(file);
     return this;
   }
 
