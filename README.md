@@ -31,7 +31,6 @@
  8. area listener excel区域块监听
  
    + 参考：[官网实例文档](http://jxls.sourceforge.net/samples/area_listener.html)
-   + dafdsafdas
 
 ## jxls-reader ##
 
